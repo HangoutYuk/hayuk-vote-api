@@ -1,0 +1,22 @@
+var express = require("express")
+const helmet = require('helmet')
+const cors = require('cors')
+var app = express()
+const routes = require('./routes')
+var eta = require("eta")
+var path = require('path')
+
+app.engine("eta", eta.renderFile)
+eta.configure({ views: "./views", cache: true })
+app.set("views", "./views")
+app.set("view cache", true)
+app.set("view engine", "eta")
+app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(cors())
+app.use(helmet())
+app.options('*', cors())
+app.use(routes)
+
+module.exports = app

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<script></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HangoutYuk! : Vote</title>
+    <link rel="icon" type="image/x-icon" href="/public/logo.svg">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar shadow" style="background-color: #434738; height: 96px">
+        <div class="container-fluid justify-content-center">
+          <a class="navbar-brand text-white" href="#">
+            <div class="d-inline-flex align-items-center">
+              <div class="me-2">
+                <img src="/public/logo.svg" alt="Logo" height="24" />
+              </div>
+              <div>
+                <p class="mt-3 fs-4 fw-semibold">HangoutYuk! : Vote</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="m-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-sm-5 mb-3 mb-sm-0">
+          <div class="card">
+            <img src="<%~ it.photo_link %>" class="object-fit-cover border rounded" alt="place photo" height="480px" />
+          </div>
+        </div>
+        <div class="col-sm-5 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-text"><%~ it.place_category %></h6>
+              <h5 class="card-title"><%~ it.place_name %></h5>
+              <% if (it.place_about !== null) { %>
+              <p class="card-text"><%~ it.place_about %></p>
+              <% } else { %>
+              <p class="card-text"></p>
+              <% } %>
+              <div class="d-flex align-items-center mb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill"
+                  viewBox="0 0 16 16"
+                  style="color: yellow"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+                <p class="card-text ms-2"><%~ it.place_rating %> (<%~ it.place_total_rating %>)</p>
+              </div>
+              <a href="<%~ it.place_links %>" class="btn btn-success btn-lg d-inline-flex align-items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-map-fill me-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.502.502 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5V.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.498.498 0 0 0-.196 0L5 14.09zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1-.5-.1z"
+                  />
+                </svg>
+                Go to maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <h3 class="text-center mb-4">Vote Here</h3>
+        <form method="post" action="">
+          <div class="row gap-3 column-gap-5 justify-content-md-center">
+            <div class="col-sm-4">
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="name">Name</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Input your name.."
+                  aria-label="Username"
+                  aria-describedby="name"
+                  name="name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-sm-auto">
+              <input type="radio" class="btn-check" name="vote" id="vote-yes" autocomplete="off" value="1" required/>
+              <label class="btn btn-outline-success d-inline-flex align-items-center" for="vote-yes">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check-lg me-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"
+                  />
+                </svg>
+                Vote Yes
+              </label>
+              <input type="radio" class="btn-check" name="vote" id="vote-no" autocomplete="off" value="0" required/>
+              <label class="btn btn-outline-danger d-inline-flex align-items-center" for="vote-no">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-x-lg me-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+                  />
+                </svg>
+                Vote No
+              </label>
+            </div>
+            <div class="col-sm-auto">
+              <button type="submit" class="btn btn-success" style="width: 200px">Save Vote</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <% var agree = 0 %>
+      <% var disagree = 0 %>
+      <% it.polls.forEach(function(item, index) { %>
+        <% if (item.agree) { %>
+          <% agree+=1 %>
+          <% } else { %>
+          <% disagree+=1 %>
+          <% } %>
+          <% }) %>
+      <div class="row">
+        <div class="row d-flex align-items-center justify-content-md-center mb-4">
+          <div class="col-sm-auto">
+            <h3 class="text-center">Vote Result</h3>
+          </div>
+          <div class="col-sm-auto">
+            <h5 class="text-center"><span class="badge text-bg-success">Yes: <%~ agree %></span></h5>
+          </div>
+          <div class="col-sm-auto">
+            <h5 class="text-center"><span class="badge text-bg-danger">No: <%~ disagree %></span></h5>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mb-5">
+          <div class="col-sm-8">
+            <table class="table table-striped table-hover">
+
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Vote</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% it.polls.forEach(function(item, index) { %>
+                <tr>
+                  <th scope="row"><%= index+=1 %></th>
+                  <td><%= item.polling_person_name %></td>
+                  <% if (item.agree) { %>
+                  <td>Yes</td>
+                  <% } else { %>
+                  <td>No</td>
+                  <% } %>
+                  <% }) %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="d-flex w-100 align-items-center justify-content-center p-1 text-white"
+      style="background-color: #434738"
+    >
+      <p class="mt-3">Copyright © HangoutYuk! 2023</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
