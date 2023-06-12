@@ -1,9 +1,8 @@
 const router = require('express').Router()
-const { voteApp, voteCreate, voteInput } = require('./controllers')
+const { pollWeb, pollInput } = require('./controllers')
 
-router.post('/vote/create', voteCreate)
-router.route('/vote/:id')
-  .get(voteApp)
-  .post(voteInput)
+router.route('/poll/:pollId')
+  .get(pollWeb)
+  .post(pollInput)
 
 module.exports = router
