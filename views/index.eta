@@ -65,7 +65,7 @@
                 </svg>
                 <p class="card-text ms-2"><%~ it.pollData.place_rating %> (<%~ it.pollData.place_total_review %>)</p>
               </div>
-              <a href="<%~ it.pollData.maps_url %>" class="btn btn-success btn-lg d-inline-flex align-items-center">
+              <a href="<%~ it.pollData.maps_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg d-inline-flex align-items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
