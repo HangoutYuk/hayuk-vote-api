@@ -1,0 +1,11 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: bash
+    args: ['-c', 'sed -i "s|INSTANCE_UNIX_SOCKET:|INSTANCE_UNIX_SOCKET: $$UNIX_SOCKET|" app.yaml; sed -i "s|DB_PASS:|DB_PASS: $$PASS|" app.yaml; sed -i "s|DB_NAME:|DB_NAME: hayuk_api|" app.yaml; sed -i "s|DB_USER:|DB_USER: root|" app.yaml; gcloud app deploy']
+    secretEnv: ['UNIX_SOCKET', 'PASS']
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/api-db-socket/versions/latest
+      env: 'UNIX_SOCKET'
+    - versionName: projects/$PROJECT_ID/secrets/hayuk-recommender-api-db-pass/versions/latest
+      env: 'PASS'

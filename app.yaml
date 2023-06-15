@@ -1,0 +1,7 @@
+runtime: nodejs18
+service: poll
+env_variables:
+  INSTANCE_UNIX_SOCKET:
+  DB_USER:
+  DB_PASS:
+  DB_NAME:
